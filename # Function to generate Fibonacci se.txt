@@ -1,0 +1,21 @@
+# Function to generate Fibonacci series up to 'n' terms
+def fibonacci(n):
+    fib_series = []
+    a, b = 0, 1
+    for _ in range(n):
+        fib_series.append(a)
+        a, b = b, a + b
+    return fib_series
+
+# Get user input for the number of terms
+n = int(input("Enter the number of terms for Fibonacci series: "))
+
+# Generate Fibonacci series
+fib_series = fibonacci(n)
+
+# Write the Fibonacci series to a text file
+with open("fibonacci_series.txt", "w") as file:
+    file.write("Fibonacci Series up to " + str(n) + " terms:\n")
+    file.write(", ".join(map(str, fib_series)) + "\n")
+
+print(f"Fibonacci series has been saved to 'fibonacci_series.txt'")
